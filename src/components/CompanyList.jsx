@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ArrowRight } from "lucide-react";
 
 const CompanyList = ({ data }) => {
   const uniqueCompaniesSet = new Set(data.map((item) => item.Make));
@@ -14,13 +15,14 @@ const CompanyList = ({ data }) => {
         <h2 className="text-3xl font-bold mb-6 text-white">
             List of Car Companies
         </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-6xl curser-pointer">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-6xl cursor-pointer">
         {displayedCompanies.map((company, index) => (
           <div
             key={index}
-            className="bg-transparent shadow-md rounded-xl p-4 border border-gray-600 hover:bg-white hover:text-black transition-all duration-300 text-center"
+            className="bg-transparent shadow-md rounded-xl p-4 border border-gray-600 hover:bg-white hover:text-black transition-all duration-300 text-center flex items-center justify-around cursor-pointer"
           >
             <p className="text-lg font-medium">{company}</p>
+            <ArrowRight />
           </div>
         ))}
       </div>

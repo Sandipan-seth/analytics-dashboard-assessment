@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
 import SummaryCards from "./SummaryCards";
 import CompanyList from "./CompanyList";
+import Charts from "./Charts";
 
 const Dashboard = () => {
   const [data, setData] = useState([]);
@@ -24,7 +25,7 @@ const Dashboard = () => {
 
   return (
     <div className="p-4 md:p-8 bg-black min-h-screen h-full">
-      <h1 className="text-3xl font-bold mb-6 text-center text-white">
+      <h1 className="text-4xl md:text-6xl font-bold mb-6 text-center text-white underline">
         EV Dashboard
       </h1>
       {loading ? (
@@ -34,6 +35,7 @@ const Dashboard = () => {
       ) : (
         <div>
           <SummaryCards data={data} />
+          <Charts data={data} />
           <CompanyList data={data} />
         </div>
       )}
