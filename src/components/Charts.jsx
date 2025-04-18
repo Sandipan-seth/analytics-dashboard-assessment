@@ -52,41 +52,84 @@ const Charts = ({ data }) => {
         </span>
       </h1>
       <div className="grid md:grid-cols-2 gap-6 mb-6 text-black w-full">
-        <div className="bg-white rounded-2xl shadow p-4">
+        <div className="border border-gray-400 rounded-2xl shadow p-4 text-white">
           <h3 className="text-lg font-semibold mb-2">EV Growth by Year</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={byYear}>
               <XAxis
                 dataKey="year"
                 interval={0}
-                tick={{ angle: -45, textAnchor: "end", fontSize: 12 }}
+                tick={{
+                  angle: -45,
+                  textAnchor: "end",
+                  fontSize: 12,
+                  fill: "white",
+                }}
                 height={30}
               />
-              <YAxis />
-              <Tooltip />
+              <YAxis
+                tick={{
+                  fill: "white",
+                }}
+              />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "#1f2937",
+                  borderRadius: "8px",
+                  border: "none",
+                  color: "#fff",
+                  fontSize: "14px",
+                }}
+                labelStyle={{
+                  color: "#93c5fd", // light blue label
+                  fontWeight: "bold",
+                }}
+              />
               <Line type="monotone" dataKey="count" stroke="#8884d8" />
             </LineChart>
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-white rounded-2xl shadow p-4">
+        <div className="border border-gray-400 rounded-2xl shadow p-4 text-white">
           <h3 className="text-lg font-semibold mb-2">Top 10 EV Makes</h3>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={byMake}>
               <XAxis
                 dataKey="make"
                 interval={0}
-                tick={{ angle: -45, textAnchor: "end", fontSize: 12 }}
+                tick={{
+                  angle: -45,
+                  textAnchor: "end",
+                  fontSize: 12,
+                  fill: "white",
+                }}
                 height={60}
               />
-              <YAxis />
-              <Tooltip />
+              <YAxis
+                tick={{
+                  fill: "white",
+                }}
+              />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "#1f2937",
+                  borderRadius: "8px",
+                  border: "none",
+                  color: "#fff",
+                  fontSize: "14px",
+                }}
+                labelStyle={{
+                  color: "#93c5fd", // light blue label
+                  fontWeight: "bold",
+                }}
+                cursor={{ fill: "rgba(255, 255, 255, 0.5)" }}
+              />
               <Bar dataKey="count" fill="#82ca9d" />
             </BarChart>
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-white rounded-2xl shadow p-4 md:col-span-2">
+        <div className="border border-gray-400 text-white rounded-2xl shadow p-4 md:col-span-2">
           <h3 className="text-lg font-semibold mb-2">EV Type Distribution</h3>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
@@ -102,7 +145,21 @@ const Charts = ({ data }) => {
                   <Cell key={index} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
-              <Tooltip />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "white",
+                  borderRadius: "8px",
+                  border: "none",
+                  color: "#ffffff",
+                  fontSize: "14px",
+                }}
+                labelStyle={{
+                  color: "#93c5fd",
+                  fontWeight: "bold",
+                }}
+              />
+              {/* Optional: Add a legend */}
+              {/* <Legend verticalAlign="bottom" height={36} /> */}
             </PieChart>
           </ResponsiveContainer>
         </div>
