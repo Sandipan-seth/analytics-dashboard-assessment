@@ -1,8 +1,8 @@
 import React from "react";
 
 const SummaryCards = ({ data }) => {
-  const totalEVs = data.length;
-  const uniqueMakes = new Set(data.map((item) => item.Make)).size;
+  const totalEVs = data.length -1 ;
+  const uniqueCompanies = new Set(data.map((item) => item.Make)).size;
   const uniqueModels = new Set(data.map((item) => item.Model)).size;
   const totalCountries = new Set(data.map((item) => item.County)).size;
 
@@ -14,7 +14,7 @@ const SummaryCards = ({ data }) => {
     },
     {
       title: "Total Car Companies",
-      value: uniqueMakes,
+      value: uniqueCompanies,
       bg: "bg-gradient-to-r from-gray-800 to-green-600",
     },
     {

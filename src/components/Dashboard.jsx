@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
 import SummaryCards from "./SummaryCards";
+import CompanyList from "./CompanyList";
 
 const Dashboard = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     Papa.parse(
@@ -13,7 +15,8 @@ const Dashboard = () => {
         header: true,
         complete: (results) => {
           setData(results.data);
-          // console.log("Parsed data:", results.data);
+          console.log("Parsed data:", results.data);
+          setLoading(false);
         },
       }
     );
@@ -24,7 +27,16 @@ const Dashboard = () => {
       <h1 className="text-3xl font-bold mb-6 text-center text-white">
         EV Dashboard
       </h1>
-      <SummaryCards data={data} />
+      {loading ? (
+        <div className="flex justify-center items-center text-white py-10 text-3xl">
+          <h1>Loading....</h1>
+        </div>
+      ) : (
+        <div>
+          <SummaryCards data={data} />
+          <CompanyList data={data} />
+        </div>
+      )}
     </div>
   );
 };
