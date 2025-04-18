@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import Dashboard from "./components/Dashboard";
 
-const App = () => {
+function App() {
   return (
-    <div className='bg-black w-full h-screen text-white flex justify-center items-center'>
-      App
+    <div >
+      <Dashboard />;
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
