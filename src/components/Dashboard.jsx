@@ -6,14 +6,17 @@ const Dashboard = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    Papa.parse("/data-to-visualize/Electric_Vehicle_Population_Data.csv", {
-      download: true,
-      header: true,
-      complete: (results) => {
-        setData(results.data);
-        // console.log("Parsed data:", results.data);
-      },
-    });
+    Papa.parse(
+      "https://raw.githubusercontent.com/amit-12k/analytics-dashboard-assessment/main/data-to-visualize/Electric_Vehicle_Population_Data.csv",
+      {
+        download: true,
+        header: true,
+        complete: (results) => {
+          setData(results.data);
+          // console.log("Parsed data:", results.data);
+        },
+      }
+    );
   }, []);
 
   return (
