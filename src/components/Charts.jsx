@@ -45,13 +45,13 @@ const Charts = ({ data }) => {
   );
 
   return (
-    <div className="flex flex-col justify-center items-center gap-4 mt-10">
-      <h1>
+    <div className="flex flex-col justify-center items-center gap-4 mt-10 w-full">
+      <h1 className="w-full flex items-center justify-center">
         <span className="text-3xl font-bold mb-6 text-center text-white">
           Overall EV Dashboard
         </span>
       </h1>
-      <div className="grid md:grid-cols-2 gap-6 mb-6 text-black">
+      <div className="grid md:grid-cols-2 gap-6 mb-6 text-black w-full">
         <div className="bg-white rounded-2xl shadow p-4">
           <h3 className="text-lg font-semibold mb-2">EV Growth by Year</h3>
           <ResponsiveContainer width="100%" height={300}>
