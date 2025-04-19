@@ -1,7 +1,7 @@
 import React from "react";
 
 const SummaryCards = ({ data }) => {
-  const totalEVs = data.length -1 ;
+  const totalEVs = data.length - 1;
   const uniqueCompanies = new Set(data.map((item) => item.Make)).size;
   const uniqueModels = new Set(data.map((item) => item.Model)).size;
   const totalCountries = new Set(data.map((item) => item.County)).size;

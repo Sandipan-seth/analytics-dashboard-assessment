@@ -58,7 +58,7 @@ const Charts = ({ data }) => {
             <LineChart data={byYear}>
               <XAxis
                 dataKey="year"
-                interval={0}
+                interval={1}
                 tick={{
                   angle: -45,
                   textAnchor: "end",
