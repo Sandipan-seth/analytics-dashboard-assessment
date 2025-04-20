@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const CompanyList = ({ data }) => {
   const uniqueCompaniesSet = new Set(data.map((item) => item.Make));
   const uniqueCompanies = [...uniqueCompaniesSet];
   const [showAll, setShowAll] = useState(false);
+  const navigate = useNavigate();
 
   const displayedCompanies = showAll
     ? uniqueCompanies
@@ -20,6 +22,7 @@ const CompanyList = ({ data }) => {
           <div
             key={index}
             className="bg-transparent shadow-md rounded-xl p-4 border border-gray-600 hover:bg-white hover:text-black transition-all duration-300 text-center flex items-center justify-around cursor-pointer"
+            onClick={() => navigate(`/${company}`)}
           >
             <p className="text-lg font-medium">{company}</p>
             <ArrowRight />
