@@ -90,10 +90,10 @@ const CompanyWise = () => {
   return (
     <>
       <div
-        className="fixed p-2 top-5 left-5 rounded-full z-9 border cursor-pointer"
+        className="fixed p-2 top-5 left-5 rounded-full z-10 border cursor-pointer "
         onClick={() => navigate("/")}
       >
-        <ArrowLeft className="text-white" size={30} />
+        <ArrowLeft className="text-white" size={30} onClick={()=>{navigate('/')}}/>
       </div>
       <div className="min-h-screen bg-black text-white p-6 md:p-10">
         <h1 className="text-4xl md:text-6xl font-bold text-center underline mb-10">
