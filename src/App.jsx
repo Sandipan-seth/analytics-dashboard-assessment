@@ -1,11 +1,16 @@
 import React from "react";
-import Dashboard from "./components/Dashboard";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import CompanyWise from "./pages/CompanyWise";
 
 function App() {
   return (
-    <div className="text-white">
-      <Dashboard />
-    </div>
+      <div className="text-white">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/:companyName" element={<CompanyWise />} />
+        </Routes>
+      </div>
   );
 }
 
